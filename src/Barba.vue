@@ -13,7 +13,6 @@
         methods: {
             handler (index, contact) {
                 if (contact == '') {
-                    window.console.log(index)
                     this.contacts.splice(index, 1)
                     this.focusLastField()
                 }
@@ -42,6 +41,7 @@
 <template>
     <div>
         <div id="app">
+            <pre>{{ $data | json }}</pre>
             <div v-for="contact in contacts" track-by="$index">
                 <input :data-index="$index" type="text" v-model="contact" @keyup="handler($index, contact)">
             </div>
